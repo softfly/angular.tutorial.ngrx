@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Book } from '../book-list/books.model';
 
 @Component({
   selector: 'app-book-collection',
   templateUrl: './book-collection.component.html',
-  styleUrls: ['./book-collection.component.css']
+  styleUrls: ['./book-collection.component.css'],
 })
-export class BookCollectionComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class BookCollectionComponent {
+  @Input() books: ReadonlyArray<Book | undefined> | null = [];
+  @Output() remove = new EventEmitter<string>();
 }
