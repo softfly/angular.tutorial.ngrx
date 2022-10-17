@@ -16,8 +16,8 @@ import { Observable } from "rxjs";
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  books$: Observable<ReadonlyArray<Book>> = this.store.select(selectBooks);
-  bookCollection$: Observable<(Book | undefined)[]> = this.store.select(selectBookCollection);
+  books$ = this.store.select(selectBooks) as Observable<ReadonlyArray<Book>>;
+  bookCollection$ : Observable<ReadonlyArray<Book>> = this.store.select<ReadonlyArray<Book>>(selectBookCollection);
 
   onAdd(bookId: string) {
     this.store.dispatch(addBook({ bookId }));

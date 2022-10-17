@@ -7,6 +7,6 @@ import { Book } from './books.model';
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent {
-  @Input() books: ReadonlyArray<Book> | null = [];
+  @Input() books : ReadonlyArray<Book> = [];
   @Output() add = new EventEmitter<string>();
 }
